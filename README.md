@@ -6,5 +6,5 @@ Thông tin liên hệ [Facebook](https://www.facebook.com/arlo1005/) [Instagram]
 # BÀI TẬP NHÓM<br>
 **Đề tài: Hệ thống cửa hàng hoa trực tuyến**<br>
 _Thành viên: Nguyễn Hoàng Anh <br>
-             Hồ Nguyễn Bảo Trân_
+             &emsp;Hồ Nguyễn Bảo Trân_
              
