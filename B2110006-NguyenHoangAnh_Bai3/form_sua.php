@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "qlsv";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+    $id = $_POST['id'];
+    $sql = "select * FROM student WHERE ID='".$id."'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+?>
+<body>
+    <?php print_r($row)?>
+    <form action="sua.php" method="post">
+        ID:<input type="text" name="id" value="<?php echo $row['id'];?>"><br>
+        Name: <input type="text" name="fullname" value="<?php echo
+        $row['fullname'];?>"><br>
+        E-mail: <input type="text" name="email" value="<?php echo
+        $row['email'];?>"><br>
+        Birthday: <input type="date" name="birth" value="<?php echo
+        $row['Birthday'];?>"><br>
+        Major: 
+            <select name="major" id="" style="width: 200px; height: 30px;">
+                <?php
+                    $query = "SELECT * FROM major";
+                    $result1 = $conn->query($query);
+                    while ($major = $result1->fetch_assoc()){
+                        $selected = ($major['id'] == $row['major_id']) ? 'selected' : '';
+                        echo '<option value="' . $major['id'] . '"'. $selected .' >'
+                         . $major['name_major'] . '</option>';
+                    }
+                ?>
+            </select><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
